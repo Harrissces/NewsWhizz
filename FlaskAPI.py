@@ -13,6 +13,9 @@ import uuid
 
 # Load environment variables first
 load_dotenv()
+import os
+api_key = os.getenv("OPENAI_API_KEY")
+
 
 # Initialize Flask app AFTER loading env vars
 app = Flask(__name__)
@@ -225,4 +228,5 @@ def daily_briefing():
 # --- Run the app ---
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
+
     app.run(host="0.0.0.0", port=port, debug=False)
